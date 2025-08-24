@@ -1,0 +1,259 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-12 17:30:30.847618",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "channel_name",
+  "channel_description",
+  "type",
+  "column_break_imbh",
+  "is_synced",
+  "linked_doctype",
+  "linked_document",
+  "workspace",
+  "section_break_evg4",
+  "is_direct_message",
+  "is_thread",
+  "is_dm_thread",
+  "column_break_puci",
+  "is_self_message",
+  "column_break_ubts",
+  "is_archived",
+  "section_break_wlnt",
+  "last_message_timestamp",
+  "column_break_eckt",
+  "last_message_details",
+  "section_break_acpc",
+  "pinned_messages",
+  "pinned_messages_string",
+  "ai_tab",
+  "is_ai_thread",
+  "openai_thread_id",
+  "thread_bot"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Private\nPublic\nOpen",
+   "reqd": 1
+  },
+  {
+   "fieldname": "channel_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Channel Name",
+   "read_only_depends_on": "eval: doc.is_direct_message || doc.is_self_message",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_direct_message",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Is Direct Message",
+   "set_only_once": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_self_message",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Is Self Message",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "channel_description",
+   "fieldtype": "Small Text",
+   "label": "Channel Description"
+  },
+  {
+   "fieldname": "column_break_puci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_evg4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ubts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_archived",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Is Archived"
+  },
+  {
+   "fieldname": "section_break_wlnt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "last_message_timestamp",
+   "fieldtype": "Datetime",
+   "label": "Last Message Timestamp",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_eckt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_message_details",
+   "fieldtype": "JSON",
+   "label": "Last Message Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_imbh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linked_doctype",
+   "fieldtype": "Link",
+   "label": "Linked DocType",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "linked_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Linked Document",
+   "options": "linked_doctype",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_synced",
+   "fieldtype": "Check",
+   "label": "Is Synced",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_thread",
+   "fieldtype": "Check",
+   "label": "Is Thread",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ai_tab",
+   "fieldtype": "Tab Break",
+   "label": "AI"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_ai_thread",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is AI Thread",
+   "read_only": 1
+  },
+  {
+   "fieldname": "openai_thread_id",
+   "fieldtype": "Data",
+   "label": "OpenAI Thread ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "thread_bot",
+   "fieldtype": "Link",
+   "label": "Thread Bot",
+   "options": "Raven Bot",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_acpc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pinned_messages",
+   "fieldtype": "Table",
+   "label": "Pinned Messages",
+   "options": "Raven Pinned Messages"
+  },
+  {
+   "fieldname": "pinned_messages_string",
+   "fieldtype": "Small Text",
+   "label": "Pinned Messages String"
+  },
+  {
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "label": "Workspace",
+   "options": "Raven Workspace",
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_dm_thread",
+   "fieldtype": "Check",
+   "label": "Is DM Thread",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Raven Channel Member",
+   "link_fieldname": "channel_id"
+  },
+  {
+   "link_doctype": "Raven Message",
+   "link_fieldname": "channel_id"
+  }
+ ],
+ "modified": "2024-12-08 01:24:55.359995",
+ "modified_by": "Administrator",
+ "module": "Raven Channel Management",
+ "name": "Raven Channel",
+ "naming_rule": "By script",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Raven User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "type",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "channel_name"
+}
